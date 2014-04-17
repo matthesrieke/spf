@@ -1,5 +1,5 @@
 <assembly>
-	<id>SNAPSHOT</id>
+	<id>binaries</id>
 	<formats>
 		<format>dir</format>
 		<format>zip</format>
@@ -66,7 +66,7 @@
 			<fileMode>0755</fileMode>
 		</file>
 		<file>
-			<source>src/main/java/spf-log4j.properties</source>
+			<source>src/main/resources/spf-log4j.properties</source>
 			<outputDirectory>config</outputDirectory>
 			<fileMode>0755</fileMode>
 		</file>
