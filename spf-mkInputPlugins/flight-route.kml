@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+  <name>Flight route</name>
+  <open>1</open>
+  
+      <Style id="transBluePoly">
+      <LineStyle>
+        <width>1.5</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>7dff0000</color>
+      </PolyStyle>
+    </Style>
+  <Placemark>
+    <name>Flight route</name>
+    <styleUrl>#transBluePoly</styleUrl>
+	<LineString>
+	
+		<altitudeMode>relativeToGround</altitudeMode>
+      <extrude>1</extrude>
+      <tessellate>1</tessellate>
+      <coordinates>
+7.6369545210158,52.006604573021,200
+7.6369545210158,52.007097259241,200
+7.6369545210158,52.007589940038,200
+7.6369545210158,52.008082615411,200
+7.6369545210158,52.008575285359,200
+7.634553388293,52.008575285359,200
+7.634553388293,52.008082615411,200
+7.634553388293,52.007589940038,200
+7.634553388293,52.007097259241,200
+7.634553388293,52.006604573021,200
+      </coordinates>
+    </LineString>
+  </Placemark>
+</Document>
+</kml>
