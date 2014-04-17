@@ -90,7 +90,6 @@
 		<dependency>
 			<groupId>org.n52.ifgicopter</groupId>
 			<artifactId>spf-bindings</artifactId>
-			<version>${project.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.n52.swe.sensorbus</groupId>
@@ -110,7 +109,6 @@
 		<dependency>
 			<groupId>org.n52.ifgicopter</groupId>
 			<artifactId>spf-api</artifactId>
-			<version>${project.version}</version>
 		</dependency>
 		<!-- <dependency> <groupId>org.n52.ifgicopter</groupId> <artifactId>spf-mkInputPlugin</artifactId> 
 			<version>0.1</version> </dependency> <dependency> <groupId>org.n52.ifgicopter</groupId> 

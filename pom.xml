@@ -12,12 +12,49 @@
 	<artifactId>spf</artifactId>
 	<packaging>pom</packaging>
 	<version>0.6-SNAPSHOT</version>
-	<name>Sensor Platform Framework API</name>
+	<name>Sensor Platform Framework</name>
 
 	<modules>
 		<module>spf-api</module>
 		<module>spf-bindings</module>
 		<module>spf-core</module>
+		<module>spf-outputPlugins</module>
+		<module>spf-inputPlugins</module>
 	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>spf-bindings</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>spf-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>spf-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>spf-outputPlugins</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>spf-inputPlugins</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>spf-mkInputPlugins</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 </project>
