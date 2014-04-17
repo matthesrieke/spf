@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>SPF Live Sensor Data</title>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+	/*
+	 * https://developers.google.com/earth/documentation/kml
+	 */
+	var ge;
+
+	google.load("earth", "1");
+
+	// 	var kmlUrl = 'http://v-tml.uni-muenster.de/SPFlive.kml';
+	// 	var kmlUrl = 'SPFlive.kml';
+
+	var kmlUrl = '$$KML_FILE$$';
+
+	function init() {
+		google.earth.createInstance('map3d', initCallback, failureCallback);
+	}
+
+	function initCallback(instance) {
+		ge = instance;
+		ge.getWindow().setVisibility(true);
+
+		// add a navigation control
+		ge.getNavigationControl().setVisibility(ge.VISIBILITY_AUTO);
+
+		// add some layers
+		ge.getLayerRoot().enableLayerById(ge.LAYER_BORDERS, true);
+		ge.getLayerRoot().enableLayerById(ge.LAYER_ROADS, false);
+
+		document.getElementById('installed-plugin-version').innerHTML = ge
+				.getPluginVersion().toString();
+		document.getElementById('kml-url').innerHTML = kmlUrl;
+		document.getElementById('kml-url-link').href = kmlUrl;
+		
+		// get KML
+		fetchKmlFromInput();
+	}
+
+	function failureCallback(errorCode) {
+		alert("Error: " + errorCode);
+	}
+
+	var currentKmlObject = null;
+
+	function fetchKmlFromInput() {
+		// remove the old KML object if it exists
+		if (currentKmlObject) {
+			ge.getFeatures().removeChild(currentKmlObject);
+			currentKmlObject = null;
+		}
+
+		google.earth.fetchKml(ge, kmlUrl, finishFetchKml);
+	}
+
+	function finishFetchKml(kmlObject) {
+		// check if the KML was fetched properly
+		if (kmlObject) {
+			// add the fetched KML to Earth
+			currentKmlObject = kmlObject;
+			ge.getFeatures().appendChild(currentKmlObject);
+
+			// zoom to it
+			if (kmlObject.getAbstractView())
+				ge.getView().setAbstractView(kmlObject.getAbstractView());
+		} else {
+			// wrap alerts in API callbacks and event handlers
+			// in a setTimeout to prevent deadlock in some browsers
+			setTimeout(function() {
+				alert('Bad or null KML.');
+			}, 0);
+		}
+	}
+
+	google.setOnLoadCallback(init);
+</script>
+
+</head>
+
+<body id='body'>
+	<center>
+		<h1>SPF Live Sensor Data</h1>
+
+		<div id='map3d'
+			style='border: 1px solid silver; height: 600px; width: 800px;'></div>
+
+		<div>
+			Installed Plugin Version: <span id="installed-plugin-version"
+				style="font-weight: bold;">x.x</span> | KML file: <a id="kml-url-link" href="."><span id="kml-url"
+				style="font-weight: bold;">...</span></a>
+		</div>
+	</center>
+</body>
+</html>
