@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spf:plugin xmlns:spf="http://ifgi.uni-muenster.de/~m_riek02/spf/0.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://ifgi.uni-muenster.de/~m_riek02/spf/0.1
+http://ifgi.uni-muenster.de/~m_riek02/spf/0.1/spf-pluginDescription.xsd"
+	name="urn:ifgi:id:stationary1">
+	<spf:output>
+		<spf:AvailabilityBehaviour>
+			<spf:outputProperties>
+				<spf:property>temperature</spf:property>
+				<spf:property>humidity</spf:property>
+			</spf:outputProperties>
+		</spf:AvailabilityBehaviour>
+		<spf:singleOutputAllowed>true</spf:singleOutputAllowed>
+	</spf:output>
+	<SensorML xmlns="http://www.opengis.net/sensorML/1.0.1"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swe="http://www.opengis.net/swe/1.0.1"
+		xmlns:gml="http://www.opengis.net/gml" xmlns:xlink="http://www.w3.org/1999/xlink"
+		xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+		version="1.0.1">
+		<member>
+			<System>
+
+				<!--~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<!--Keywords -->
+				<!--~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<keywords>
+					<KeywordList>
+						<keyword>stationary sensor platform</keyword>
+						<keyword>humidity</keyword>
+						<keyword>temperature</keyword>
+					</KeywordList>
+				</keywords>
+				<!--~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<!--Identification -->
+				<!--~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<identification>
+					<IdentifierList>
+						<identifier name="uniqueID">
+							<Term definition="urn:ogc:def:identifier:OGC:uniqueID">
+								<value>urn:ogc:object:feature:platform:IFGI:stationary1</value>
+							</Term>
+						</identifier>
+						<identifier name="longName">
+							<Term definition="urn:ogc:def:identifier:OGC:1.0:longName">
+								<value>stationary sensor platform for environmental monitoring</value>
+							</Term>
+						</identifier>
+						<identifier name="shortName">
+							<Term definition="urn:ogc:def:identifier:OGC:1.0:shortName">
+								<value>stationary sensor platform</value>
+							</Term>
+						</identifier>
+					</IdentifierList>
+				</identification>
+				<!--~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<!--Classification -->
+				<!--~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<classification>
+					<ClassifierList>
+						<classifier name="intendedApplication">
+							<Term definition="urn:ogc:def:classifier:OGC:1.0:application">
+								<value>climate</value>
+							</Term>
+						</classifier>
+					</ClassifierList>
+				</classification>
+				<!--~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<!--Valid time -->
+				<!--~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<validTime>
+					<gml:TimePeriod>
+						<gml:beginPosition>2010-09-15</gml:beginPosition>
+						<gml:endPosition>2011-03-15</gml:endPosition>
+					</gml:TimePeriod>
+				</validTime>
+				<!--~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<!--Contact -->
+				<!--~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<!-- profile-specific: A "contact" element has to be present. -->
+				<contact>
+					<ResponsibleParty gml:id="WWU_IfGI_ifgcopter_contact">
+						<organizationName>Institute for Geoinformatics - Westfaelische
+							Wilhelms
+							Universitaet Muenster - Sensor Web and Simulation Lab
+						</organizationName>
+						<contactInfo>
+							<address>
+								<electronicMailAddress>m.rieke@uni-muenster.de
+								</electronicMailAddress>
+							</address>
+						</contactInfo>
+					</ResponsibleParty>
+				</contact>
+
+
+				<!-- if the platform is stationary use this instead of gml:boundedBy -->
+
+				<position name="systemPosition">
+					<swe:Position referenceFrame="urn:ogc:def:crs:EPSG::4326">
+						<swe:location>
+							<swe:Vector gml:id="SYSTEM_LOCATION">
+								<swe:coordinate name="latitude">
+									<swe:Quantity>
+										<swe:uom code="deg" />
+										<swe:value>51.8</swe:value>
+									</swe:Quantity>
+								</swe:coordinate>
+								<swe:coordinate name="longitude">
+									<swe:Quantity>
+										<swe:uom code="deg" />
+										<swe:value>7.2</swe:value>
+									</swe:Quantity>
+								</swe:coordinate>
+								<swe:coordinate name="altitude">
+									<swe:Quantity>
+										<swe:uom code="m" />
+										<swe:value>20.0</swe:value>
+									</swe:Quantity>
+								</swe:coordinate>
+							</swe:Vector>
+						</swe:location>
+					</swe:Position>
+				</position>
+
+
+				<!--~~~~~~~~~~~~~ -->
+				<!--System Inputs -->
+				<!--~~~~~~~~~~~~~ -->
+				<inputs>
+					<InputList>
+						<input name="temperature">
+							<swe:Quantity definition="urn:ogc:def:property:OGC:1.0:temperature">
+								<swe:uom code="Cel" />
+							</swe:Quantity>
+						</input>
+						<input name="humidity">
+							<swe:Quantity definition="urn:ogc:def:property:OGC:1.0:relativehumidity">
+								<swe:uom code="%" />
+							</swe:Quantity>
+						</input>
+						<input name="time">
+							<swe:Time referenceFrame="blub"></swe:Time>
+						</input>
+					</InputList>
+				</inputs>
+				<!--~~~~~~~~~~~~~~ -->
+				<!--System Outputs -->
+				<!--~~~~~~~~~~~~~~ -->
+				<outputs>
+					<OutputList>
+						<output name="temperature">
+							<swe:Quantity definition="urn:ogc:def:property:OGC:1.0:temperature">
+								<swe:uom code="Cel" />
+							</swe:Quantity>
+						</output>
+						<output name="humidity">
+							<swe:Quantity definition="urn:ogc:def:property:OGC:1.0:relativehumidity">
+								<swe:uom code="%" />
+							</swe:Quantity>
+						</output>
+						<output name="time">
+							<swe:Time referenceFrame="blub"></swe:Time>
+						</output>
+					</OutputList>
+				</outputs>
+
+			</System>
+		</member>
+	</SensorML>
+
+</spf:plugin>

@@ -1,0 +1,15 @@
+Sensor Platform Framework Changelog
+=============================================
+
+Version 0.6, tbc
+-----------
++ new, improved version of framework core gui
++ added feature for gui-based management of plugins
++ package and folder refactoring
++ restructured native lib folders
+
+
+Version 0.5, 2012-01-11
+-----------
++ first stable release
++ fixed performance leak in plugin control

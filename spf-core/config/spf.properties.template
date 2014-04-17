@@ -1,0 +1,24 @@
+### Semicolon seperated list of classes implementing 
+### de.ifgi.lehre.thesisRieke.spf.output.IOutputPlugin
+### parameters to constructors can be passed in using brackets and commas 
+### and will be treated as Strings.
+### e.g., "de.ifgi.lehre.thesisRieke.spf.output.sensorbus.SensorBusPlugin(false, true)"
+IOutputPlugins = 
+
+### Semicolon seperated list of classes implementing
+### de.ifgi.lehre.thesisRieke.spf.input.IInputPlugin
+### parameters to constructors can be passed in using brackets and commas 
+### and will be treated as Strings.
+IInputPlugins = org.n52.ifgicopter.spf.input.DummyInputPlugin
+
+### Semicolon seperated list of classes extending 
+### de.ifgi.lehre.thesisRieke.spf.data.AbstractDataProcessor
+### parameters to constructors can be passed in using brackets and commas 
+### and will be treated as Strings.
+### e.g., "de.ifgi.lehre.thesisRieke.spf.data.UnitConverter"
+AbstractDataProcessors = org.n52.ifgicopter.spf.data.UnitConverter
+
+### class implementing de.ifgi.lehre.thesisRieke.spf.data.AbstractInterpolator
+AbstractInterpolator = org.n52.ifgicopter.spf.data.LinearInterpolator
+
+ValidateXML = true

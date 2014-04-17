@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spf:plugin xmlns:spf="http://ifgi.uni-muenster.de/~m_riek02/spf/0.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://ifgi.uni-muenster.de/~m_riek02/spf/0.1
+http://ifgi.uni-muenster.de/~m_riek02/spf/0.1/spf-pluginDescription.xsd"
+	name="urn:ifgi:id:microdrone1">
+	<spf:output>
+		<spf:AvailabilityBehaviour>
+			<spf:outputProperties>
+				<spf:property>position</spf:property>
+			</spf:outputProperties>
+		</spf:AvailabilityBehaviour>
+		<spf:outputOnAllItems>true</spf:outputOnAllItems>
+	</spf:output>
+	<SensorML xmlns="http://www.opengis.net/sensorML/1.0.1"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swe="http://www.opengis.net/swe/1.0.1"
+		xmlns:gml="http://www.opengis.net/gml" xmlns:xlink="http://www.w3.org/1999/xlink"
+		xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+		version="1.0.1">
+		<member>
+			<System>
+
+				<!-- if the platform is mobile use this instead of sml:position -->
+				<gml:boundedBy>
+					<gml:Envelope srsName="urn:ogc:def:crs:EPSG::4326">
+						<gml:lowerCorner>51.5 6.5</gml:lowerCorner>
+						<gml:upperCorner>52.5 7.5</gml:upperCorner>
+					</gml:Envelope>
+				</gml:boundedBy>
+
+				<!--~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<!--Keywords -->
+				<!--~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<keywords>
+					<KeywordList>
+						<keyword>ifgicotper microdrone sensor platform</keyword>
+						<keyword>humidity</keyword>
+						<keyword>temperature</keyword>
+					</KeywordList>
+				</keywords>
+				<!--~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<!--Identification -->
+				<!--~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<identification>
+					<IdentifierList>
+						<identifier name="uniqueID">
+							<Term definition="urn:ogc:def:identifier:OGC:uniqueID">
+								<value>urn:ogc:object:feature:platform:IFGI:microdrone1</value>
+							</Term>
+						</identifier>
+						<identifier name="longName">
+							<Term definition="urn:ogc:def:identifier:OGC:1.0:longName">
+								<value>ifgicotper microdone sensor platform for environmental monitoring</value>
+							</Term>
+						</identifier>
+						<identifier name="shortName">
+							<Term definition="urn:ogc:def:identifier:OGC:1.0:shortName">
+								<value>ifgicopter microdone sensor platform</value>
+							</Term>
+						</identifier>
+					</IdentifierList>
+				</identification>
+				<!--~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<!--Classification -->
+				<!--~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<classification>
+					<ClassifierList>
+						<classifier name="intendedApplication">
+							<Term definition="urn:ogc:def:classifier:OGC:1.0:application">
+								<value>climate</value>
+							</Term>
+						</classifier>
+					</ClassifierList>
+				</classification>
+				<!--~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<!--Valid time -->
+				<!--~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<validTime>
+					<gml:TimePeriod>
+						<gml:beginPosition>2010-09-15</gml:beginPosition>
+						<gml:endPosition>2011-06-15</gml:endPosition>
+					</gml:TimePeriod>
+				</validTime>
+				<!--~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<!--Contact -->
+				<!--~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<!-- profile-specific: A "contact" element has to be present. -->
+				<contact>
+					<ResponsibleParty gml:id="WWU_IfGI_ifgcopter_contact">
+						<organizationName>Institute for Geoinformatics - Westfaelische
+							Wilhelms
+							Universitaet Muenster - Sensor Web and Simulation Lab
+						</organizationName>
+						<contactInfo>
+							<address>
+								<electronicMailAddress>m.rieke@uni-muenster.de
+								</electronicMailAddress>
+							</address>
+						</contactInfo>
+					</ResponsibleParty>
+				</contact>
+
+
+				<!--~~~~~~~~~~~~~ -->
+				<!--System Inputs -->
+				<!--~~~~~~~~~~~~~ -->
+				<inputs>
+					<InputList>
+						<input name="position">
+							<swe:Position referenceFrame="urn:ogc:def:crs:EPSG::4326">
+								<swe:location>
+									<swe:Vector>
+										<swe:coordinate name="latitude">
+											<swe:Quantity>
+												<swe:uom code="deg" />
+											</swe:Quantity>
+										</swe:coordinate>
+										<swe:coordinate name="longitude">
+											<swe:Quantity>
+												<swe:uom code="deg" />
+											</swe:Quantity>
+										</swe:coordinate>
+										<swe:coordinate name="altitude">
+											<swe:Quantity>
+												<swe:uom code="m" />
+											</swe:Quantity>
+										</swe:coordinate>
+									</swe:Vector>
+								</swe:location>
+							</swe:Position>
+						</input>
+						<input name="altitude">
+							<swe:Quantity>
+								<swe:uom code="m" />
+							</swe:Quantity>
+						</input>
+						<input name="time">
+							<swe:Time definition="urn:ogc:def:phenomenon:time" referenceFrame="urn:ogc:def:unit:iso8601" />
+						</input>
+					</InputList>
+				</inputs>
+				<!--~~~~~~~~~~~~~~ -->
+				<!--System Outputs -->
+				<!--~~~~~~~~~~~~~~ -->
+				<outputs>
+					<OutputList>
+						<output name="position">
+							<swe:Position referenceFrame="urn:ogc:def:crs:EPSG::4326">
+								<swe:location>
+									<swe:Vector>
+										<swe:coordinate name="latitude">
+											<swe:Quantity>
+												<swe:uom code="deg" />
+											</swe:Quantity>
+										</swe:coordinate>
+										<swe:coordinate name="longitude">
+											<swe:Quantity>
+												<swe:uom code="deg" />
+											</swe:Quantity>
+										</swe:coordinate>
+										<swe:coordinate name="altitude">
+											<swe:Quantity>
+												<swe:uom code="m" />
+											</swe:Quantity>
+										</swe:coordinate>
+									</swe:Vector>
+								</swe:location>
+							</swe:Position>
+						</output>
+						<output name="altitude">
+							<swe:Quantity>
+								<swe:uom code="m" />
+							</swe:Quantity>
+						</output>
+						<output name="time">
+							<swe:Time definition="urn:ogc:def:phenomenon:time" referenceFrame="urn:ogc:def:unit:iso8601" />
+						</output>
+					</OutputList>
+				</outputs>
+
+			</System>
+		</member>
+	</SensorML>
+
+</spf:plugin>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spf:plugin xmlns:spf="http://ifgi.uni-muenster.de/~m_riek02/spf/0.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://ifgi.uni-muenster.de/~m_riek02/spf/0.1
+http://ifgi.uni-muenster.de/~m_riek02/spf/0.1/spf-pluginDescription.xsd"
+	name="urn:inst:dummy1">
+	<spf:output>
+		<spf:AvailabilityBehaviour>
+			<spf:outputProperties>
+			</spf:outputProperties>
+		</spf:AvailabilityBehaviour>
+		<spf:mandatoryProperties>
+		</spf:mandatoryProperties>
+	</spf:output>
+	<SensorML xmlns="http://www.opengis.net/sensorML/1.0.1"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swe="http://www.opengis.net/swe/1.0.1"
+		xmlns:gml="http://www.opengis.net/gml" xmlns:xlink="http://www.w3.org/1999/xlink"
+		xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+		version="1.0.1">
+		<member>
+			<System>
+
+				<!-- if the platform is mobile use this instead of sml:position -->
+				<!-- uncomment this if needed and remove sml:position entry -->
+				<!-- <gml:boundedBy>
+					<gml:Envelope srsName="urn:ogc:def:crs:EPSG::4326">
+						<gml:lowerCorner>51.5 6.5</gml:lowerCorner>
+						<gml:upperCorner>52.5 7.5</gml:upperCorner>
+					</gml:Envelope>
+				</gml:boundedBy> -->
+
+				<identification>
+					<IdentifierList>
+						<identifier name="uniqueID">
+							<Term definition="urn:ogc:def:identifier:OGC:uniqueID">
+								<value>urn:ogc:object:feature:platform:IFGI:stationary1</value>
+							</Term>
+						</identifier>
+					</IdentifierList>
+				</identification>
+
+				<contact>
+					<ResponsibleParty gml:id="dummy_system_maintenance">
+						<contactInfo>
+							<address>
+								<electronicMailAddress>dummy@mail.com
+								</electronicMailAddress>
+							</address>
+						</contactInfo>
+					</ResponsibleParty>
+				</contact>
+
+
+				<!-- if the platform is stationary use this instead of gml:boundedBy -->
+				<position name="systemPosition">
+					<swe:Position referenceFrame="urn:ogc:def:crs:EPSG::4326">
+						<swe:location>
+							<swe:Vector gml:id="SYSTEM_LOCATION">
+								<swe:coordinate name="latitude">
+									<swe:Quantity>
+										<swe:uom code="deg" />
+										<swe:value>51.8</swe:value>
+									</swe:Quantity>
+								</swe:coordinate>
+								<swe:coordinate name="longitude">
+									<swe:Quantity>
+										<swe:uom code="deg" />
+										<swe:value>7.2</swe:value>
+									</swe:Quantity>
+								</swe:coordinate>
+							</swe:Vector>
+						</swe:location>
+					</swe:Position>
+				</position>
+
+
+
+				<inputs>
+
+				</inputs>
+
+				<outputs>
+
+				</outputs>
+
+			</System>
+		</member>
+	</SensorML>
+
+</spf:plugin>

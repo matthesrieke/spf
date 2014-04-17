@@ -1,0 +1,33 @@
+<html><head><title>Project Setup for the Sensor Platform Framework</title></head>
+<body>
+ <h2>Installation instructions</h2>
+ 
+ <div>
+ This project is managed using maven2. It depends on two other projects: spf-bindings and spf-api. So you need
+ to install this projects first (suggested install sequence as above).<br/><br/>
+ </div>
+ <div>
+ There are some third party libraries needed to run the SPFramework which are not included in the release and source repository
+ due to licensing issues. Please download them manually and copy the corresponding .jar file to the lib-repository/ directory.<br/><br/>
+ </div>
+ <div>
+ The following table contains a column for developers. As this project is maintained using maven some desired third party
+ libraries (due to licensing issues) need to be added manually.
+ The column contains the groupID, artifact and the name to be applied to the .jar file. Please drop the renamed .jar file in the designated subfolder of the "lib-repository"" directory.
+ Afterwards, a common maven command (e.g "mvn install") builds the project.
+ </div>
+ 
+  <hr noshade />
+ 
+ <table>
+ <tr><th>Library</th><th>maven info</th></tr>
+ <tr>
+ 	<td valign="top"><a href="http://svn.openstreetmap.org/applications/viewer/jmapviewer/releases">JMapViewer.zip</a></td>
+ 	<td><div>groupID: org.openstreetmap.gui, artifact: jmapviewer, version: 2011-02-19</div><div> <strong>extract/rename to: jmapviewer-2011-02-19.jar and move to lib-repository/org/openstreetmap/gui/jmapviewer/2011-02-19</strong></div></td>
+ </tr>
+ 
+ </table>
+ 
+ <hr noshade /><em>52North...</em>
+
+</body></html>
