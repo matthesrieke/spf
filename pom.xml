@@ -51,10 +51,19 @@
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>spf-mkInputPlugins</artifactId>
+				<artifactId>spf-mkInputPlugin</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<profiles>
+		<profile>
+			<id>mikrokopter</id>
+			<modules>
+				<module>spf-mkInputPlugins</module>
+			</modules>
+		</profile>
+	</profiles>
 
 </project>
