@@ -110,11 +110,19 @@
 			<groupId>org.n52.ifgicopter</groupId>
 			<artifactId>spf-api</artifactId>
 		</dependency>
-		<!-- <dependency> <groupId>org.n52.ifgicopter</groupId> <artifactId>spf-mkInputPlugin</artifactId> 
-			<version>0.1</version> </dependency> <dependency> <groupId>org.n52.ifgicopter</groupId> 
-			<artifactId>spf-outputPlugins</artifactId> <version>0.1</version> </dependency> 
-			<dependency> <groupId>org.n52.ifgicopter</groupId> <artifactId>spf-inputPlugins</artifactId> 
-			<version>0.1</version> </dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.n52.ifgicopter</groupId> -->
+<!-- 			<artifactId>spf-mkInputPlugin</artifactId>  -->
+<!-- 			<version>0.1</version> -->
+<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.n52.ifgicopter</groupId> 
+			<artifactId>spf-outputPlugins</artifactId>
+		</dependency> 
+		<dependency>
+			<groupId>org.n52.ifgicopter</groupId>
+			<artifactId>spf-inputPlugins</artifactId> 
+		</dependency> 
 		<dependency>
 			<groupId>com.thaiopensource</groupId>
 			<artifactId>jing</artifactId>

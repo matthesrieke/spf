@@ -588,8 +588,14 @@ public class SPFRegistry {
     }
 
     private void loadExtensions() {
-    	 String tmp = this.properties.getProperty(EXTENSIONS_PROP).trim();
-         String[] dps = tmp.split(LIST_SEPARATOR);
+    	 String tmp = this.properties.getProperty(EXTENSIONS_PROP);
+    	 
+    	 if (tmp == null) {
+    		 log.info("No extensions found.");
+    		 return;
+    	 }
+    	 
+         String[] dps = tmp.trim().split(LIST_SEPARATOR);
 
          this.extensions = new ArrayList<IExtension>();
          if ( !tmp.equals("")) {
