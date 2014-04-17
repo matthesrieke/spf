@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:spf="http://ifgi.uni-muenster.de/~m_riek02/spf/0.1" xmlns:swe="http://www.opengis.net/swe/1.0.1" xmlns:gml="http://www.opengis.net/gml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sml="http://www.opengis.net/sensorML/1.0.1" targetNamespace="http://ifgi.uni-muenster.de/~m_riek02/spf/0.1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.opengis.net/sensorML/1.0.1" schemaLocation="http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"/>
+	<xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://schemas.opengis.net/xlink/1.0.0/xlinks.xsd"/>
+	<xs:import namespace="http://www.opengis.net/swe/1.0.1" schemaLocation="http://schemas.opengis.net/sweCommon/1.0.1/swe.xsd"/>
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
+	<xs:element name="plugin" type="spf:pluginType">
+		<xs:annotation>
+			<xs:documentation>The root element of a plugin instance.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<!-- THE MAIN PLUGIN TYPE. root element is of this type. -->
+	<xs:complexType name="pluginType">
+		<xs:annotation>
+			<xs:documentation>This type defines the structure of a plugin and its properties</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="output">
+				<xs:annotation>
+					<xs:documentation>Controls the output generation.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="spf:Behaviour"/>
+						<xs:choice>
+							<xs:element name="mandatoryProperties">
+								<xs:annotation>
+									<xs:documentation>This list holds the properties that are mandatory for an output data tuple.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="property" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>A link to an items property.
+This property must exist in the itemList (a field with the same attribute value for "name").</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="outputOnAllItems" type="xs:boolean">
+								<xs:annotation>
+									<xs:documentation>the mandatoryProperties list can be replaced by this boolean flag indicating that all items of this plugin are needed for output data tuples.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="singleOutputAllowed" type="xs:boolean">
+								<xs:annotation>
+									<xs:documentation>use this flag if all outputProperties can be generate a single output (no data tuples)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:choice>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<!-- REF TO SensorML ELEMENT -->
+			<xs:element ref="sml:SensorML"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Globally used name for this plugin</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<!-- TYPES DEFINING the BEHAVIOUR -->
+	<xs:element name="Behaviour" type="spf:AbstractBehaviourType" abstract="true"/>
+	<xs:element name="AvailabilityBehaviour" type="spf:AvailabilityBehaviourType" substitutionGroup="spf:Behaviour"/>
+	<xs:element name="PeriodBehaviour" type="spf:PeriodBehaviourType" substitutionGroup="spf:Behaviour"/>
+	<xs:complexType name="AbstractBehaviourType" abstract="true"/>
+	<xs:complexType name="AvailabilityBehaviourType">
+		<xs:complexContent>
+			<xs:extension base="spf:AbstractBehaviourType">
+				<xs:sequence>
+					<xs:element name="outputProperties">
+						<xs:annotation>
+							<xs:documentation>This list holds the properties that initiate output generation on arrival.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="property" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A link to an items property.
+This property must exist in the inputs of the SensorML system (a input with the same attribute value for "name").</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PeriodBehaviourType">
+		<xs:complexContent>
+			<xs:extension base="spf:AbstractBehaviourType">
+				<xs:sequence>
+					<xs:element name="timedelta" type="xs:int"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

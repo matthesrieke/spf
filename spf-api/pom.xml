@@ -1,0 +1,135 @@
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<parent>
+		<groupId>org.n52.ifgicopter</groupId>
+		<artifactId>spf</artifactId>
+		<version>0.6-SNAPSHOT</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>spf-api</artifactId>
+	<packaging>jar</packaging>
+
+	<name>Sensor Platform Framework API</name>
+
+	<repositories>
+		<repository>
+			<id>n52-releases</id>
+			<name>52n Releases</name>
+			<url>http://52north.org/maven/repo/releases/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>n52-snapshots</id>
+			<name>52n Snapshots</name>
+			<url>http://52north.org/maven/repo/snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.mycila.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+				<version>1.9.0</version>
+				<configuration>
+					<header>src/main/resources/52n_license_header.txt</header>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.8.1</version>
+				<configuration>
+					<show>package</show>
+					<header>SPFramework API</header>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>1.6.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- XMLbeans binaries -->
+		<dependency>
+			<groupId>org.n52.ifgicopter</groupId>
+			<artifactId>spf-bindings</artifactId>
+			<version>${project.version}</version>
+
+			<!-- here we only need sensorml -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.n52.swe.sensorbus</groupId>
+					<artifactId>sensorBus</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>org.n52.sensorweb</groupId>
+					<artifactId>52n-xml-gml-v311</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.n52.sensorweb</groupId>
+					<artifactId>52n-xml-om-v100</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.n52.sensorweb</groupId>
+					<artifactId>52n-xml-sweCommon-v101</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.n52.sensorweb</groupId>
+					<artifactId>52n-xml-xlink-v100</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>org.n52.ifgicopter.xbs</groupId>
+					<artifactId>spfXBs</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.topografix</groupId>
+					<artifactId>gpx</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+</project>
